@@ -27,7 +27,7 @@ namespace Asbru_CM_Runner
             }
 
             if (!File.Exists(bashPath)) {
-                Console.WriteLine("Unable to locate bash.exe. Please set the path to Xming with --bashpath=C:\\Windows\\System32\\bash.exe");
+                Console.WriteLine("Unable to locate bash.exe. Please set the path to bash.exe with --bashpath=C:\\Windows\\System32\\bash.exe");
                 System.Environment.Exit(1);
             }
 
