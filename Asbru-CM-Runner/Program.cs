@@ -31,7 +31,6 @@ namespace Asbru_CM_Runner
                 System.Environment.Exit(1);
             }
 
-
             Process process = new Process();
 
             // Stop the process from opening a new window
