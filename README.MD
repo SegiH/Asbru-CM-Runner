@@ -1,13 +1,12 @@
 # Asbru-CM Runner
 
-Asbru-CM-Runner is an application that lets you run the SSH client [Asbru-CM](https://www.asbru-cm.net) in Windows (which is usually only available on Linux) without having a console window always open in the background.
+Asbru-CM-Runner is an application that lets you run the really great SSH client [Asbru-CM](https://www.asbru-cm.net) in Windows (which is usually only available on Linux) without having a console window always open in the background.
 
 # Installation
-1. Install [Xming](http://www.straightrunning.com/XmingNotes/)
-2. Enable [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) In Windows 10 and enable WSL2. Note: If you are on an older build of Windows 10 (Pre 1903), you won't be able to enable WSL2. I have not tried this without WSL2 but I think that it should still work.
-3. Install [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) from the Microsoft Store. Do not visit Ubuntu.com. You need to get the specific  Ubuntu image for WSL from the MS Store.
+1. Install [Xming](http://www.straightrunning.com/XmingNotes/) follow the prompts and run it.
+3. The latest instructions from Microsoft suggest that you open a Powershell and run wsl --install. I had to specify Ubuntu as my Distro by doing `wsl --install -d ubuntu` and follow the prompts creating the user until you get to a bash prompt.
 4. Make sure Asbru works when you manually run it
-   a. Run Xming. The app icon should appear in the system tray at the bottom right.
+   a. Run Xming if it's not running already. The app icon should appear in the system tray at the bottom right.
    b. Open a bash.exe prompt from the run menu
    c. Run the command `export DISPLAY=:0`
    d. `Run sudo curl -1sLf 'https://dl.cloudsmith.io/public/asbru-cm/release/cfg/setup/bash.deb.sh' | sudo -E bash && sudo apt-get update && sudo install -y asbru-cm`
