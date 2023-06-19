@@ -8,11 +8,10 @@ namespace Asbru_CM_Runner
         public AsbruCMRunner(string[] args)
         {
             const string asbruCMBinary = "asbru-cm";
+            string wslGPath = $"{Environment.GetEnvironmentVariable("windir")}\\system32\\wslg.exe";
             string bashPath = "C:\\Windows\\System32\\bash.exe";
             string xmingPath = "C:\\Progra~2\\Xming\\Xming.exe";
-            bool skipXMing = false; // When using WSL2, we don't need to run XMing
-
-            int wslVersion = GetWSLVersion();
+            bool skipXMing = false; // XMing is not needed when using WSLg
 
             // Check if command line arguments were passed to override xming and Bash path
             if (args.Length > 0)
@@ -33,7 +32,7 @@ namespace Asbru_CM_Runner
                 }
             }
 
-            if (wslVersion == 2)
+            if (File.Exists(wslGPath))
             {
                 skipXMing = true;
             }
@@ -55,7 +54,7 @@ namespace Asbru_CM_Runner
             // Make sure asbru-cm is installed
             string result = ExecuteProcess(bashPath, $"-c \"whereis -b {asbruCMBinary}\"", true);
             result = result.Replace(asbruCMBinary + ":\n", "");
-            
+
             if (result.Length == 0)
             {
                 Console.WriteLine($"Unable to locate {asbruCMBinary} binary. Is Asbru-CM installed in WSL?");
@@ -96,35 +95,6 @@ namespace Asbru_CM_Runner
             else
             {
                 return "";
-            }
-        }
-
-        static int GetWSLVersion()
-        {
-            string result = ExecuteProcess("C:\\Windows\\System32\\wsl.exe", "-l -v", true);
-
-            result = result.Replace("\n", "").Replace("\r", "");
-
-            result = result.Substring(result.IndexOf('\n') + 2, result.Length - 2 - result.IndexOf('\n')).Trim();
-
-            while ((int)result[^1] == 0)
-            {
-                result = result[..^1];
-            }
-
-            result = result[^1].ToString();
-
-            if (result.Equals("1"))
-            {
-                return 1;
-            }
-            else if (result.Equals("2"))
-            {
-                return 2;
-            }
-            else
-            {
-                return 0;
             }
         }
     }
