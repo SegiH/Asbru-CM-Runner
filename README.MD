@@ -16,9 +16,10 @@ If you are using WSLg, Asbru-CM-Runner will try to automatically detect this by 
    - Run `asbru-cm  &` and make sure that Asbru starts correctly. Once the main Asbru-CM window loads, you can close Asbru-CM.
 
 # Command line arguments
-    - Bash: Asbru-CM-Runner will look for bash.exe in the default location (C:\Windows\system32\bash.exe). If you want to specify a different location for bash.exe, you can use the command line argument `--bashPath=C:\somefolder\bash.exe`. Please note that if the path has spaces, you must wrap it in quotation marks like this: `--bashPath="C:\some folder\bash.exe"`. This path must end in bash.exe or it will be ignored.
-    - XMing (No WSLg only): Asbru-CM-Runner will look for xming.exe in the default location (C:\Program Files (x86)\Xming\xming.exe). If you want to change this location, you can use the command line argument `--xmingPath=C:\somefolder\Xming\xming.exe`. Please note that if the path has spaces, you must wrap them in quotation marks. This path must end in xming.exe or it will be ignored.
-    - Force WSLg mode: Asbru-CM-Runner will try to automatically detect if WSLg is avaialable by looking for the binary wslg.exe in `C:\Windows\System32\wslg.exe`. If this does not automatically detect WSLg, you can force WSLg mode this by providing the command line argument `--skip-xming=true`;
+
+1. Bash: Asbru-CM-Runner will look for bash.exe in the default location (C:\Windows\system32\bash.exe). If you want to specify a different location for bash.exe, you can use the command line argument `--bashPath=C:\somefolder\bash.exe`. Please note that if the path has spaces, you must wrap it in quotation marks like this: `--bashPath="C:\some folder\bash.exe"`. This path must end in bash.exe or it will be ignored.
+1. XMing (No WSLg only): Asbru-CM-Runner will look for xming.exe in the default location (C:\Program Files (x86)\Xming\xming.exe). If you want to change this location, you can use the command line argument `--xmingPath=C:\somefolder\Xming\xming.exe`. Please note that if the path has spaces, you must wrap them in quotation marks. This path must end in xming.exe or it will be ignored.
+1. Force WSLg mode: Asbru-CM-Runner will try to automatically detect if WSLg is avaialable by looking for the binary wslg.exe in `C:\Windows\System32\wslg.exe`. If this does not automatically detect WSLg, you can force WSLg mode this by providing the command line argument `--skip-xming=true`;
 
 # Issues
 
